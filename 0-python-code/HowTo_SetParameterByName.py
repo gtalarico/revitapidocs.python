@@ -5,6 +5,10 @@ Set one of element's parameters.
 TESTED REVIT API: 2016,2017
 
 Author: Francisco Possetto | github.com/franpossetto
+
+Shared on www.revitapidocs.com
+For more information visit http://github.com/gtalarico/revitapidocs
+License: http://github.com/gtalarico/revitapidocs/blob/master/LICENSE.md
 """
 
 #Imports
