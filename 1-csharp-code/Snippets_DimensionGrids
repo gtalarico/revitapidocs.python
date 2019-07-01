@@ -8,7 +8,9 @@ This file is shared on www.revitapidocs.com
 For more information visit http://github.com/gtalarico/revitapidocs
 License: http://github.com/gtalarico/revitapidocs/blob/master/LICENSE.md
 */
-
+/// <summary>
+/// Creates a single dimension string between the chosen Grid lines
+/// </summary>
 public void DimGrids()
 {			
   UIDocument uidoc = this.ActiveUIDocument;
@@ -16,7 +18,7 @@ public void DimGrids()
 
   // Pick all the grid lines you want to dimension to
   GridSelectionFilter filter = new ThisApplication.GridSelectionFilter(doc);			
-  IList<Element> grids = uidoc.Selection.PickElementsByRectangle(filter, "Pick Grid Lines");
+  var grids = uidoc.Selection.PickElementsByRectangle(filter, "Pick Grid Lines");
 
   ReferenceArray refArray = new ReferenceArray();
   XYZ dir = null;
@@ -63,4 +65,29 @@ public void DimGrids()
     }				
     t.Commit();
   }					
+}
+/// <summary>
+/// Grid Selection Filter (example for selection filters)
+/// </summary>
+public class GridSelectionFilter : ISelectionFilter
+{
+  Document doc = null;
+  public GridSelectionFilter(Document document)
+  {
+    doc = document;
+  }
+
+  public bool AllowElement(Element element)
+  {
+    if(element.Category.Name == "Grids")
+    {
+      return true;
+    }
+    return false;
+  }
+
+  public bool AllowReference(Reference refer, XYZ point)
+  {
+    return true;
+  }
 }
