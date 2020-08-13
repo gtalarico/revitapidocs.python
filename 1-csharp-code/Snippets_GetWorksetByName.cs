@@ -19,8 +19,3 @@ public Workset GetWorksetByName(Document doc, string WorksetName)
     //if the workset does not exist, return the first one.
     return (workset != null) ? workset : worksets.FirstOrDefault();
 }
-
-
-
-
-

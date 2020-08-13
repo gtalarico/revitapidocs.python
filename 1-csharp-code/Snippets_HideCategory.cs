@@ -29,4 +29,3 @@ public void HideCategory(Document doc, string categoryName, bool hide)
         t.Commit();
     }
 }
-
